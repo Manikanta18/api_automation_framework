@@ -1,6 +1,6 @@
 const { src, dest } = require("gulp");
 const argv = require("yargs").argv;
-let 
+var path = require("path");
 
 
 /**
@@ -10,8 +10,5 @@ let
  * tag - given tag/tags
  */
 
-if(argv.ff !== undefined){
-    var featureOath = argv.ff;
-} else {
-    var feat
-}
+
+var featurePath = (argv.ff == undefined) ?  path.join(path.dirname(require.main.filename),'tests','features') : path.join(path.dirname(require.main.filename),'tests','features',argv.ff)
