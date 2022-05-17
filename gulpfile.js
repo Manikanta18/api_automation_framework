@@ -1,7 +1,7 @@
-const { src, dest } = require("gulp");
 const argv = require("yargs").argv;
 var path = require("path");
-
+var cucumber = require('gulp-cucumber');
+var gulp =  require('gulp');
 
 /**
  * arguments 
@@ -10,5 +10,18 @@ var path = require("path");
  * tag - given tag/tags
  */
 
+var projectPath = path.dirname(require.main.filename);
+var featurePath = (argv.ff == undefined) ?  path.join(projectPath,'tests','features','*') : path.join(projectPath,'tests','features',argv.ff);
 
-var featurePath = (argv.ff == undefined) ?  path.join(path.dirname(require.main.filename),'tests','features') : path.join(path.dirname(require.main.filename),'tests','features',argv.ff)
+const options = {
+    'steps': path.join(projectPath,'tests','features','step_definition.js'),
+    'format': 'summary',
+    'tags': argv.tag,
+}
+
+console.log(featurePath);
+console.log(options);
+
+gulp.task('api-test', function() {
+    return gulp.src(featurePath).pipe(cucumber(options));
+})

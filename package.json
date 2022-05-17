@@ -9,8 +9,7 @@
   "author": "manikanta jalla",
   "license": "ISC",
   "dependencies": {
-    "cucumber": "^5.0.0",
-    "gulp-cli": "^2.3.0",
+    "cucumber": "^5.1.0",
     "gulp-cucumber": "^0.0.24",
     "path": "^0.12.7",
     "yargs": "^17.5.1"
