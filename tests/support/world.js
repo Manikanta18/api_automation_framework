@@ -1,16 +1,16 @@
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
+  module.exports  = class World {
 
-class World {
-
-async request(m) {
-    console.log(m);
+ async request(options) {
+    console.log(options);
     const response = await fetch('https://github.com/');
     const body = await response.text();
     return body
 }
+
 }
 
-module.exports = {World};
+
 
     
