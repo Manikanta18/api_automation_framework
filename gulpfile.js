@@ -10,6 +10,7 @@ var gulp =  require('gulp');
  * tag - given tag/tags
  */
 
+
 var projectPath = path.dirname(require.main.filename);
 var featurePath = (argv.ff == undefined) ?  path.join(projectPath,'tests','features','*') : path.join(projectPath,'tests','features',argv.ff);
 
@@ -18,9 +19,6 @@ const options = {
     'format': 'summary',
     'tags': argv.tag,
 }
-
-console.log(featurePath);
-console.log(options);
 
 gulp.task('api-test', function() {
     return gulp.src(featurePath).pipe(cucumber(options));
