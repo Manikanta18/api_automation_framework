@@ -12,7 +12,8 @@ var gulp =  require('gulp');
 
 
 var projectPath = path.dirname(require.main.filename);
-var featurePath = (argv.ff == undefined) ?  path.join(projectPath,'tests','features','*') : path.join(projectPath,'tests','features',argv.ff);
+var feature_file =  (argv.ff == undefined) ? undefined : argv.ff + '.feature'
+var featurePath = (feature_file == undefined) ?  path.join(projectPath,'tests','features','*') : path.join(projectPath,'tests','features',feature_file);
 
 const options = {
     'steps': path.join(projectPath,'tests','features','step_definition.js'),
