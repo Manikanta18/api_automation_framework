@@ -9,7 +9,6 @@ let service = require('../../properties/service');
 let testData;
 let endpoint;
 let response;
-let status;
 
 Given('I have a service {string}', function(value){
     resourcePath = service[value]
