@@ -17,7 +17,6 @@ Given('I have a service {string}', function(value){
 
 Given('I have testData {string}', function(data) {
     testData = testDataFile[data];
-    console.log(testData);
 })
 
 Given('I have input {string} as {string}', function(resource,value) {
@@ -35,7 +34,6 @@ When('I submit the values', async function(){
         method :'GET',
         headers: {'Content-Type': 'application/json'}
     }
-    console.log(endpoint,options);
     response = await World.request(endpoint,options);
 })
 
