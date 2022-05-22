@@ -17,10 +17,11 @@ Given('I have a service {string}', function(value){
 
 Given('I have testData {string}', function(data) {
     testData = testDataFile[data];
+    console.log(testData);
 })
 
 Given('I have input {string} as {string}', function(resource,value) {
-    if(resource.startsWith("data_")){
+    if(value.startsWith("data_")){
         resourcePath = resourcePath.replace(resource,testData[value.slice(5,)])
     }
     else {

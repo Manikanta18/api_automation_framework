@@ -1,6 +1,6 @@
 module.exports = {
-    data : {
-        name : "manikanta",
-        id : 12234
+    test : {
+        num1 : "24",
+        num2 : "26",
     }
 }
