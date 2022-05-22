@@ -18,8 +18,13 @@ module.exports = {
 
  async request(endpoint,options) {
     const response = await fetch(endpoint,options);
-    // console.log("res -> ",response.body);
-    return response
+    const status = response.status;
+    const data = await response.json();
+   
+    return {
+      body : data,
+      code : status
+    };
   }
 
 }

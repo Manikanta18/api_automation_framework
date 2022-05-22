@@ -9,6 +9,7 @@ let service = require('../../properties/service');
 let testData;
 let endpoint;
 let response;
+let status;
 
 Given('I have a service {string}', function(value){
     resourcePath = service[value]
@@ -35,13 +36,12 @@ When('I submit the values', async function(){
     }
     console.log(endpoint,options);
     response = await World.request(endpoint,options);
-    // console.log("res -> ",response.body);
 })
 
-Then('The Expected result is {int}', function(ExpResult){
+Then('The Expected result is {string}', function(ExpResult){
     assert.deepStrictEqual(ExpResult,response.body)
 })
 
 Then('Expected status code is {int}', function(ExpResult){
-    assert.deepStrictEqual(ExpResult,response.status)
+    assert.deepStrictEqual(ExpResult,response.code)
 })
