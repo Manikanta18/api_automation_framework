@@ -2,6 +2,7 @@ const argv = require("yargs").argv;
 var path = require("path");
 var cucumber = require('gulp-cucumber');
 var gulp =  require('gulp');
+const reporter = require("gulp-protractor-cucumber-html-report");
 
 /**
  * arguments 
@@ -17,10 +18,16 @@ var featurePath = (feature_file == undefined) ?  path.join(projectPath,'tests','
 
 const options = {
     'steps': path.join(projectPath,'tests','features','step_definitions','step_definition.js'),
-    'format': 'summary',
     'tags': argv.tag,
 }
 
 gulp.task('api-test', function() {
     return gulp.src(featurePath).pipe(cucumber(options));
 })
+
+gulp.task("htmlReport", async function () {
+    gulp.src("reports/results.json")
+        .pipe(reporter({
+            dest: "reports"
+        }));
+});
