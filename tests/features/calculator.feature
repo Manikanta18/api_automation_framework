@@ -3,10 +3,12 @@ Feature: Addition
     To know the sum of two number
 
     Scenario Outline: Add two numbers
-        Given I have input A as <A>
-        And I have input B as <B>
+        Given I have a service "add"
+        And I have input "num1" as "<A>"
+        And I have input "num2" as "<B>"
         When I submit the values
-        Then The result is <C>
+        Then The Expected result is <C>
+        And Expected status code is 200
         Examples:
             | A  | B  | C  |
             | 1  | 2  | 3  |

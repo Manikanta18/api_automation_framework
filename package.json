@@ -9,10 +9,13 @@
   "author": "manikanta jalla",
   "license": "ISC",
   "dependencies": {
+    "assert": "^2.0.0",
     "cucumber": "^5.1.0",
+    "glob": "^8.0.3",
     "gulp-cucumber": "^0.0.24",
     "node-fetch": "^3.2.4",
     "path": "^0.12.7",
+    "yaml-merge": "^0.0.2",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
