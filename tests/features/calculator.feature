@@ -1,7 +1,8 @@
 Feature: Addition
 
     To know the sum of two number
-
+    
+    @test
     Scenario Outline: Add two numbers
         Given I have a service "add"
         And I have input "num1" as "<A>"
