@@ -20,18 +20,22 @@ Given('I have testData {string}', function(data) {
 
 Given('I have input {string} as {string}', function(resource,value) {
     if(resource.startsWith("data_")){
-       resourcePath = resourcePath.replace(resource,testData[value.slice(5,)])
+        resourcePath = resourcePath.replace(resource,testData[value.slice(5,)])
     }
-    console.log("resource path is ",resourcePath);
+    else {
+        resourcePath = resourcePath.replace(resource,value);
+    }
 })
 
-When('I submit the values', function(){
+When('I submit the values', async function(){
     endpoint = baseUrlFile["dev"] + resourcePath
     let options = {
         method :'GET',
         headers: {'Content-Type': 'application/json'}
     }
-    response = World.request(endpoint,options);
+    console.log(endpoint,options);
+    response = await World.request(endpoint,options);
+    // console.log("res -> ",response.body);
 })
 
 Then('The Expected result is {int}', function(ExpResult){

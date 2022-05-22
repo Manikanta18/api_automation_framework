@@ -22,6 +22,5 @@ const options = {
 }
 
 gulp.task('api-test', function() {
-    console.log(options);
     return gulp.src(featurePath).pipe(cucumber(options));
 })

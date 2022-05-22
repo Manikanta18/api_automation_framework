@@ -17,9 +17,8 @@ module.exports = {
   },
 
  async request(endpoint,options) {
-    console.log(options);
     const response = await fetch(endpoint,options);
-    console.log(response);
+    // console.log("res -> ",response.body);
     return response
   }
 
